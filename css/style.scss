@@ -1,0 +1,84 @@
+// 引用字型
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
+
+// 色票定義
+$primary-color: #00B74F;
+$secondary-color: #B4875E;
+$white: #fff;
+$black: #00180A;
+$grey1D: #1D1D1D;
+$grey33: #333333;
+$grey66: #666666;
+$grey9F: #9F9F9F;
+$greyD4: #D4D4D4;
+$greyE9: #E9E9E9;
+$greyF7: #F7F7F7;
+$red: #EA5400;
+$yellow: #EDC84C;
+$bg: #F2F2E9;
+$areatype_bg: linear-gradient(180deg, rgba(#103D23, 0.05) 0%, rgba(#103D23, 0.50) 100%);
+// --------------------------
+// 重複css
+@mixin flex($j: center, $a: center) {
+    display: flex;
+    justify-content: $j;
+    align-items: $a;
+}
+@mixin box-shadow {
+    box-shadow: 0px 0px 0.5rem 0px rgba(0, 0, 0, 0.16);
+}
+@mixin media-breakpoint-up($size) {
+    @media (min-width: $size) {
+        @content;
+    }
+}
+// --------------------------
+// 全域設定
+* {
+    font-family: 'Inter', 'Anton', 微軟正黑體, sans-serif;
+    box-sizing: border-box;
+    letter-spacing: 0.1rem;
+    color: $black;
+    font-weight: 400;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+input {
+    border: none;
+    outline: none;
+
+    &:focus,
+    &:active {
+        border: none;
+        outline: none;
+    }
+}
+p {
+    margin: 0;
+}
+.subTitle {
+    @include flex(flex-start, center);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    font-size: 20px;
+}
+a {
+    color: $black;
+    text-decoration: none;
+}
+a:hover, a:active, a:focus {
+    color: initial;
+}
+button {
+    color: initial;
+    &:hover {
+        color: initial;
+        filter: brightness(0.9);
+    }
+}
+// --------------------------
