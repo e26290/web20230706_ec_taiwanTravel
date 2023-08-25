@@ -31,6 +31,7 @@ p {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  gap: 1rem;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
   font-size: 20px;
@@ -51,4 +52,75 @@ button {
 button:hover {
   color: initial;
   filter: brightness(0.9);
+}
+
+footer {
+  background-color: #333333;
+  padding: 3rem 0rem;
+}
+
+.f_about {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.f_about .title, .f_about .content, .f_about .btn_cta span {
+  color: #E9E9E9;
+}
+.f_about .text {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex-direction: column;
+}
+.f_about .title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.35rem;
+  letter-spacing: 0.04rem;
+}
+.f_about .content {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.05rem;
+  letter-spacing: 0.04rem;
+}
+.f_about .btn_cta span {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2rem;
+  letter-spacing: 0.2rem;
+}
+.f_about .btn_cta {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+.f_about .btn_cta .bg {
+  width: 8.125rem;
+  height: 2.5rem;
+  background-color: #00B74F;
+  border-radius: 6.25rem;
+  transition: 0.5s;
+}
+.f_about .btn_cta .content {
+  position: absolute;
+  top: 0.7rem;
+  left: 1.5rem;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.f_about .btn_cta .motion_line {
+  width: 6.25rem;
+  height: 0.0625rem;
+  background-color: #E9E9E9;
+}
+
+.f_about .btn_cta:hover .bg {
+  width: 20rem;
 }/*# sourceMappingURL=style.css.map */

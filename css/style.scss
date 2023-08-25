@@ -19,10 +19,11 @@ $bg: #F2F2E9;
 $areatype_bg: linear-gradient(180deg, rgba(#103D23, 0.05) 0%, rgba(#103D23, 0.50) 100%);
 // --------------------------
 // 重複css
-@mixin flex($j: center, $a: center) {
+@mixin flex($j: center, $a: center, $g: 1rem) {
     display: flex;
     justify-content: $j;
     align-items: $a;
+    gap: $g;
 }
 @mixin box-shadow {
     box-shadow: 0px 0px 0.5rem 0px rgba(0, 0, 0, 0.16);
@@ -31,6 +32,26 @@ $areatype_bg: linear-gradient(180deg, rgba(#103D23, 0.05) 0%, rgba(#103D23, 0.50
     @media (min-width: $size) {
         @content;
     }
+}
+// --------------------------
+// 字型包
+@mixin f_18px($w: 700) {
+    font-size: 1.125rem;
+    font-weight: $w;
+    line-height: 1.35rem;
+    letter-spacing: 0.04rem;
+}
+@mixin f_16px($w: 400) {
+    font-size: 1rem;
+    font-weight: $w;
+    line-height: 1.2rem;
+    letter-spacing: 0.2rem;
+}
+@mixin f_14px($w: 400) {
+    font-size: 0.875rem;
+    font-weight: $w;
+    line-height: 1.05rem;
+    letter-spacing: 0.04rem;
 }
 // --------------------------
 // 全域設定
@@ -80,5 +101,59 @@ button {
         color: initial;
         filter: brightness(0.9);
     }
+}
+
+// --------------------------
+
+// footer
+footer {
+    background-color: $grey33;
+    padding: 3rem 0rem;
+}
+.f_about {
+    @include flex(flex-start, center);
+    .title, .content, .btn_cta span {
+        color: $greyE9;
+    }
+    .text {
+        @include flex($a: flex-start, $g: 0.75rem);
+        flex-direction: column;
+    }
+    .title {
+        @include f_18px;
+    }
+    .content {
+        @include f_14px;
+    }
+    .btn_cta span {
+        @include f_16px(700);
+    }
+    .btn_cta {
+        position: relative;
+        width: 100%;
+        cursor: pointer;
+        .bg {
+            width: 8.125rem;
+            height: 2.5rem;
+            background-color: $primary-color;
+            border-radius: 6.25rem;
+            transition: 0.5s;
+        }
+        .content {
+            position: absolute;
+            top: 0.7rem;
+            left: 1.5rem;
+            z-index: 2;
+            @include flex;
+        }
+        .motion_line {
+            width: 6.25rem;
+            height: 0.0625rem;
+            background-color: $greyE9;
+        }
+    }
+}
+.f_about .btn_cta:hover .bg{
+    width: 20rem;
 }
 // --------------------------
