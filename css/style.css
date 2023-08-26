@@ -58,6 +58,9 @@ footer {
   background-color: #333333;
   padding: 3rem 0rem;
 }
+footer .row {
+  align-items: flex-end;
+}
 
 .f_about {
   display: flex;
@@ -123,4 +126,53 @@ footer {
 
 .f_about .btn_cta:hover .bg {
   width: 20rem;
+}
+
+.f_info {
+  padding: 0.75rem 0rem;
+}
+.f_info .f_nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+.f_info .f_nav .f_nav_link {
+  position: relative;
+  color: #E9E9E9;
+  padding: 0.5rem 0rem;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.05rem;
+  letter-spacing: 0.04rem;
+}
+.f_info .f_nav .f_nav_link::after {
+  position: absolute;
+  transition: all 0.3s ease;
+  content: "";
+  width: 0;
+  bottom: 0;
+  left: inherit;
+  right: 0;
+  height: 1px;
+  background: #00B74F;
+}
+.f_info .f_nav .f_nav_link:hover {
+  transition: all 0.7s ease;
+}
+.f_info .f_nav .f_nav_link:hover::after {
+  transition: all 0.3s ease;
+  width: 100%;
+  left: 0;
+}
+.f_info .copyright {
+  text-align: right;
+  display: block;
+  color: #B4875E;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.05rem;
+  letter-spacing: 0.04rem;
 }/*# sourceMappingURL=style.css.map */

@@ -109,6 +109,9 @@ button {
 footer {
     background-color: $grey33;
     padding: 3rem 0rem;
+    .row {
+        align-items: flex-end;
+    }
 }
 .f_about {
     @include flex(flex-start, center);
@@ -153,7 +156,52 @@ footer {
         }
     }
 }
+
 .f_about .btn_cta:hover .bg{
     width: 20rem;
 }
+
+.f_info {
+    padding: 0.75rem 0rem;
+    .f_nav {
+        @include flex($j: flex-end, $g: 1.5rem);
+        margin-bottom: 1rem;
+        .f_nav_link {
+            position: relative;
+            color: $greyE9;
+            padding: 0.5rem 0rem;
+            border: none;
+            @include f_14px;
+        }
+        .f_nav_link::after{
+            position: absolute;
+            transition: all .3s ease;
+            content: '';
+            width: 0;
+            bottom: 0;
+            left: inherit;
+            right: 0;
+            height: 1px;
+            background: $primary-color;
+        }
+        .f_nav_link:hover {
+            -webkit-transition: all .7s ease;
+            transition: all .7s ease;
+            &::after {
+                transition: all .3s ease;
+                width: 100%;
+                left: 0;
+            }  
+        }
+        
+    }
+    .copyright {
+        text-align: right;
+        display: block;
+        color: $secondary-color;
+        @include f_14px;
+    }
+}
+
+
 // --------------------------
