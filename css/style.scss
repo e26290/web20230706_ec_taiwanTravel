@@ -39,24 +39,52 @@ $areatype_bg: linear-gradient(180deg, rgba(#103D23, 0.05) 0%, rgba(#103D23, 0.50
 @mixin shadow {
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.16);
 }
+@mixin bottom_line_animation {
+    position: absolute;
+    transition: all .3s ease;
+    content: '';
+    width: 0;
+    bottom: 0;
+    left: inherit;
+    right: 0;
+    height: 1px;
+    background: $primary-color;
+}
+@mixin bottom_line_animation_hover {
+    -webkit-transition: all .7s ease;
+    transition: all .7s ease;
+    @include filter;
+
+    &::after {
+        transition: all .3s ease;
+        width: 100%;
+        left: 0;
+    }
+}
 // --------------------------
 // 字型包
+@mixin font_24px($w: 400) {
+    font-size: 1.5rem;
+    font-weight: $w;
+    line-height: 120%;
+    letter-spacing: 0.04rem;
+}
 @mixin font_18px($w: 700) {
     font-size: 1.125rem;
     font-weight: $w;
-    line-height: 1.35rem;
+    line-height: 120%;
     letter-spacing: 0.04rem;
 }
 @mixin font_16px($w: 400) {
     font-size: 1rem;
     font-weight: $w;
-    line-height: 1.2rem;
+    line-height: 120%;
     letter-spacing: 0.04rem;
 }
 @mixin font_14px($w: 400) {
     font-size: 0.875rem;
     font-weight: $w;
-    line-height: 1.05rem;
+    line-height: 120%;
     letter-spacing: 0.04rem;
 }
 // --------------------------
@@ -67,7 +95,7 @@ $areatype_bg: linear-gradient(180deg, rgba(#103D23, 0.05) 0%, rgba(#103D23, 0.50
     letter-spacing: 0.1rem;
     color: $black;
     font-weight: 400;
-    border: solid 1px #333333;
+    // border: solid 1px #333333;
 }
 html, body {
     background-color: $bg;
@@ -105,10 +133,13 @@ button {
         @include filter;
     }
 }
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
 .area_title{
+    margin-bottom: 2rem;
     h1 {
         font-weight: 700;
-        margin: 0;
         color:  $primary-color;
     }
     .en_text {
@@ -116,16 +147,119 @@ button {
         color: $secondary-color;
     }
 }
-
+.btn_more {
+    position: relative;
+    border: none;
+    padding-bottom: 0.3rem;
+}
+.btn_more::after {
+    @include bottom_line_animation;
+}
+.btn_more a {
+    @include flex($g: 0.5rem);
+    @include font_14px(700);
+    color: $primary-color;
+    
+    
+    white-space: nowrap;
+    span {
+        color: $primary-color;
+        transition: 0.3s;
+    }
+}
+.btn_more:hover {
+    @include bottom_line_animation_hover;
+    a {
+        color: $primary-color;
+    }
+}
 // --------------------------
 // recommend
 .recommend {
+    padding: 4rem 0rem;
     .recommend_card {
         background-color: $white;
         @include shadow;
+        @include flex;
+        flex-direction: row;
         border-radius: 1.5rem;
         padding: 1rem;
+        .card_img {
+            width: 50%;
+            border-radius: 1.25rem;
+        }
+        .card_info {
+            padding: 0.5rem 0.25rem;
+            flex-basis: 100%;
+            @include flex($a:stretch, $g:0.75rem);
+            flex-direction: column;
+        }
     }
+    .card_info_top, .card_info_bottom {
+        @include flex($j:space-between, $a:flex-start);
+    }
+    .card_title {
+        h4 {
+            @include font_24px(700);
+            margin-bottom: 0.75rem;
+        }
+        .subtitle {
+            display: block;
+            padding-left: 0.5rem;
+            border-left: solid 2px $secondary-color;
+            color: $secondary-color;
+            @include font_16px(700);
+        }
+    }
+    .star_tag span {
+        font-size: 2rem;
+        padding: 0.5rem;
+        color: $black;
+        background-color: $yellow;
+        border-radius: 0.75rem;
+    }
+    .card_content {
+        @include font_16px;
+        line-height: 150%;
+        color: $grey66;
+        flex-basis: 10.5rem;
+        overflow: hidden;
+        word-break: break-all;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 7;
+        -webkit-box-orient: vertical;
+        // 確認一下這邊...文字截斷是否有更好寫法
+    }
+    .card_point {
+        @include flex($j:flex-start);
+        padding: 0.25rem;
+        border-top: solid 1px $greyD4;
+        border-bottom: solid 1px $greyD4;
+        .min, .address {
+            @include flex($g:0.25rem);
+            @include font_14px;
+        }
+        span {
+            @include font_16px;
+        }
+    }
+    .card_tags {
+        @include flex($j: flex-start, $g: 0.5rem);
+
+    }
+    .card_tags a {
+        @include flex;
+        @include font_14px;
+        padding: 0.25rem 0.75rem;
+        background-color: $greyE9;
+        border-radius: 6.25rem;
+        transition: 0.3s;
+    }
+    .card_tags a:hover {
+        @include filter;
+    }
+    
 }
 // --------------------------
 // footer
@@ -164,7 +298,7 @@ footer {
             height: 2.5rem;
             background-color: $primary-color;
             border-radius: 6.25rem;
-            transition: 0.5s;
+            transition: 0.3s;
         }
         .content {
             position: absolute;
@@ -198,25 +332,10 @@ footer {
             @include font_14px;
         }
         .f_nav_link::after{
-            position: absolute;
-            transition: all .3s ease;
-            content: '';
-            width: 0;
-            bottom: 0;
-            left: inherit;
-            right: 0;
-            height: 1px;
-            background: $primary-color;
+            @include bottom_line_animation;
         }
         .f_nav_link:hover {
-            -webkit-transition: all .7s ease;
-            transition: all .7s ease;
-            @include filter;
-            &::after {
-                transition: all .3s ease;
-                width: 100%;
-                left: 0;
-            }  
+            @include bottom_line_animation_hover;
         }
         
     }
@@ -227,7 +346,6 @@ footer {
         @include font_14px;
     }
 }
-
 
 // --------------------------
 

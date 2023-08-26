@@ -6,7 +6,6 @@
   letter-spacing: 0.1rem;
   color: #00180A;
   font-weight: 400;
-  border: solid 1px #333333;
 }
 
 html, body {
@@ -49,24 +48,192 @@ button:hover {
   filter: brightness(0.85);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.area_title {
+  margin-bottom: 2rem;
+}
 .area_title h1 {
   font-weight: 700;
-  margin: 0;
   color: #00B74F;
 }
 .area_title .en_text {
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.2rem;
+  line-height: 120%;
   letter-spacing: 0.04rem;
   color: #B4875E;
 }
 
+.btn_more {
+  position: relative;
+  border: none;
+  padding-bottom: 0.3rem;
+}
+
+.btn_more::after {
+  position: absolute;
+  transition: all 0.3s ease;
+  content: "";
+  width: 0;
+  bottom: 0;
+  left: inherit;
+  right: 0;
+  height: 1px;
+  background: #00B74F;
+}
+
+.btn_more a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 0.04rem;
+  color: #00B74F;
+  white-space: nowrap;
+}
+.btn_more a span {
+  color: #00B74F;
+  transition: 0.3s;
+}
+
+.btn_more:hover {
+  transition: all 0.7s ease;
+  filter: brightness(0.85);
+}
+.btn_more:hover::after {
+  transition: all 0.3s ease;
+  width: 100%;
+  left: 0;
+}
+.btn_more:hover a {
+  color: #00B74F;
+}
+
+.recommend {
+  padding: 4rem 0rem;
+}
 .recommend .recommend_card {
   background-color: #fff;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.16);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: row;
   border-radius: 1.5rem;
   padding: 1rem;
+}
+.recommend .recommend_card .card_img {
+  width: 50%;
+  border-radius: 1.25rem;
+}
+.recommend .recommend_card .card_info {
+  padding: 0.5rem 0.25rem;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.75rem;
+  flex-direction: column;
+}
+.recommend .card_info_top, .recommend .card_info_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.recommend .card_title h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 0.04rem;
+  margin-bottom: 0.75rem;
+}
+.recommend .card_title .subtitle {
+  display: block;
+  padding-left: 0.5rem;
+  border-left: solid 2px #B4875E;
+  color: #B4875E;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 0.04rem;
+}
+.recommend .star_tag span {
+  font-size: 2rem;
+  padding: 0.5rem;
+  color: #00180A;
+  background-color: #EDC84C;
+  border-radius: 0.75rem;
+}
+.recommend .card_content {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0.04rem;
+  line-height: 150%;
+  color: #666666;
+  flex-basis: 10.5rem;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
+.recommend .card_point {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.25rem;
+  border-top: solid 1px #D4D4D4;
+  border-bottom: solid 1px #D4D4D4;
+}
+.recommend .card_point .min, .recommend .card_point .address {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0.04rem;
+}
+.recommend .card_point span {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0.04rem;
+}
+.recommend .card_tags {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+.recommend .card_tags a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0.04rem;
+  padding: 0.25rem 0.75rem;
+  background-color: #E9E9E9;
+  border-radius: 6.25rem;
+  transition: 0.3s;
+}
+.recommend .card_tags a:hover {
+  filter: brightness(0.85);
 }
 
 footer {
@@ -96,19 +263,19 @@ footer .row {
 .f_about .title {
   font-size: 1.125rem;
   font-weight: 700;
-  line-height: 1.35rem;
+  line-height: 120%;
   letter-spacing: 0.04rem;
 }
 .f_about .content {
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 1.05rem;
+  line-height: 120%;
   letter-spacing: 0.04rem;
 }
 .f_about .btn_cta span {
   font-size: 1rem;
   font-weight: 700;
-  line-height: 1.2rem;
+  line-height: 120%;
   letter-spacing: 0.04rem;
   letter-spacing: 0.2rem;
 }
@@ -122,7 +289,7 @@ footer .row {
   height: 2.5rem;
   background-color: #00B74F;
   border-radius: 6.25rem;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 .f_about .btn_cta .content {
   position: absolute;
@@ -161,7 +328,7 @@ footer .row {
   border: none;
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 1.05rem;
+  line-height: 120%;
   letter-spacing: 0.04rem;
 }
 .f_info .f_nav .f_nav_link::after {
@@ -190,6 +357,6 @@ footer .row {
   color: #B4875E;
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 1.05rem;
+  line-height: 120%;
   letter-spacing: 0.04rem;
 }/*# sourceMappingURL=style.css.map */
