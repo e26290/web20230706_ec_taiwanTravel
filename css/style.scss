@@ -1,5 +1,5 @@
 // 引用字型
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;700;900&display=swap');
 
 // 色票定義
 $primary-color: #00B74F;
@@ -33,21 +33,27 @@ $areatype_bg: linear-gradient(180deg, rgba(#103D23, 0.05) 0%, rgba(#103D23, 0.50
         @content;
     }
 }
+@mixin filter {
+    filter: brightness(0.85);
+}
+@mixin shadow {
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.16);
+}
 // --------------------------
 // 字型包
-@mixin f_18px($w: 700) {
+@mixin font_18px($w: 700) {
     font-size: 1.125rem;
     font-weight: $w;
     line-height: 1.35rem;
     letter-spacing: 0.04rem;
 }
-@mixin f_16px($w: 400) {
+@mixin font_16px($w: 400) {
     font-size: 1rem;
     font-weight: $w;
     line-height: 1.2rem;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.04rem;
 }
-@mixin f_14px($w: 400) {
+@mixin font_14px($w: 400) {
     font-size: 0.875rem;
     font-weight: $w;
     line-height: 1.05rem;
@@ -61,8 +67,11 @@ $areatype_bg: linear-gradient(180deg, rgba(#103D23, 0.05) 0%, rgba(#103D23, 0.50
     letter-spacing: 0.1rem;
     color: $black;
     font-weight: 400;
+    border: solid 1px #333333;
 }
-
+html, body {
+    background-color: $bg;
+}
 ul {
     margin: 0;
     padding: 0;
@@ -82,12 +91,6 @@ input {
 p {
     margin: 0;
 }
-.subTitle {
-    @include flex(flex-start, center);
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-    font-size: 20px;
-}
 a {
     color: $black;
     text-decoration: none;
@@ -99,12 +102,32 @@ button {
     color: initial;
     &:hover {
         color: initial;
-        filter: brightness(0.9);
+        @include filter;
+    }
+}
+.area_title{
+    h1 {
+        font-weight: 700;
+        margin: 0;
+        color:  $primary-color;
+    }
+    .en_text {
+        @include font_16px;
+        color: $secondary-color;
     }
 }
 
 // --------------------------
-
+// recommend
+.recommend {
+    .recommend_card {
+        background-color: $white;
+        @include shadow;
+        border-radius: 1.5rem;
+        padding: 1rem;
+    }
+}
+// --------------------------
 // footer
 footer {
     background-color: $grey33;
@@ -123,13 +146,14 @@ footer {
         flex-direction: column;
     }
     .title {
-        @include f_18px;
+        @include font_18px;
     }
     .content {
-        @include f_14px;
+        @include font_14px;
     }
     .btn_cta span {
-        @include f_16px(700);
+        @include font_16px(700);
+        letter-spacing: 0.2rem;
     }
     .btn_cta {
         position: relative;
@@ -155,10 +179,10 @@ footer {
             background-color: $greyE9;
         }
     }
-}
-
-.f_about .btn_cta:hover .bg{
-    width: 20rem;
+    .btn_cta:hover .bg{
+        width: 20rem;
+        @include filter;
+    }
 }
 
 .f_info {
@@ -171,7 +195,7 @@ footer {
             color: $greyE9;
             padding: 0.5rem 0rem;
             border: none;
-            @include f_14px;
+            @include font_14px;
         }
         .f_nav_link::after{
             position: absolute;
@@ -187,6 +211,7 @@ footer {
         .f_nav_link:hover {
             -webkit-transition: all .7s ease;
             transition: all .7s ease;
+            @include filter;
             &::after {
                 transition: all .3s ease;
                 width: 100%;
@@ -199,9 +224,12 @@ footer {
         text-align: right;
         display: block;
         color: $secondary-color;
-        @include f_14px;
+        @include font_14px;
     }
 }
 
 
 // --------------------------
+
+
+// 把下底線滑動的效果元件化
