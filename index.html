@@ -50,55 +50,104 @@
       <!-- recommend -->
       <div class="recommend">
         <div class="container">
-          <div class="column">
-            <div class="area_title">
-              <h1>景點推薦</h1>
-              <div class="en_text">Best Tourist Attractions</div>
-            </div>
-            <!-- 區塊輪播 -->
-
-            <div class="recommend_card col-md-8">
-              <img
-                class="card_img"
-                src="public/images/img-col-5-pic.png"
-                alt=""
-              />
-              <div class="card_info">
-                <div class="card_info_top">
-                  <div class="card_title">
-                    <h4>九份山城</h4>
-                    <span class="subtitle">隱身山城裡的祕密風景</span>
-                  </div>
-                  <div class="star_tag">
-                    <span class="material-symbols-outlined">military_tech</span>
-                  </div>
+          <div class="area_title">
+            <h1>景點推薦</h1>
+            <div class="en_text">Best Tourist Attractions</div>
+          </div>
+          <!-- 區塊輪播 -->
+          <div class="cardBox" v-for="data in recommend_cards_data">
+            <!-- 置左卡片 -->
+            <div>
+              <div class="recommend_card col-lg-8 col-md-12">
+                <div class="card_img">
+                  <img :src="data.src_1" :alt="title_1" />
                 </div>
-                <p class="card_content">
-                  當年金瓜石礦區為了因應地形而設置各種運輸工具，包括輕便台車道、空中索道、斜坡索道等設施，以利運送礦產及物資；位於勸濟堂與十三層選礦場遺址間的「六坑斜坡索道」，是目前保存較為完整的索道遺跡。
-                </p>
-                <div class="card_point">
-                  <div class="min">
-                    <span class="material-symbols-outlined">schedule</span>
-                    30 分鐘
-                  </div>
-                  <div class="address">
-                    <span class="material-symbols-outlined">location_on</span>
-                    新北市 九份區
-                  </div>
-                </div>
-                <div class="card_info_bottom">
-                  <ul class="card_tags">
-                    <li><a href="#"># 老街漫遊</a></li>
-                    <li><a href="#"># 山明水秀</a></li>
-                  </ul>
-
-                  <div href="#" class="btn_more">
-                    <a href="#">
-                      瀏覽更多
+                <div class="card_info">
+                  <div class="card_info_top">
+                    <div class="card_title">
+                      <h4>{{ data.title_1 }}</h4>
+                      <span class="subtitle">{{ data.subtitle_1 }}</span>
+                    </div>
+                    <div class="star_tag">
                       <span class="material-symbols-outlined"
-                        >arrow_circle_right</span
+                        >military_tech</span
                       >
-                    </a>
+                    </div>
+                  </div>
+                  <p class="card_content">{{ data.content_1 }}</p>
+                  <div class="card_point">
+                    <div class="min">
+                      <span class="material-symbols-outlined">schedule</span>
+                      {{ data.time_1 }} 分鐘
+                    </div>
+                    <div class="address">
+                      <span class="material-symbols-outlined">location_on</span>
+                      {{ data.city_1 }} {{ data.area_1 }}
+                    </div>
+                  </div>
+                  <div class="card_info_bottom">
+                    <ul class="card_tags">
+                      <li v-for="item in data.tags_1">
+                        <a href="#"># {{ item }}</a>
+                      </li>
+                    </ul>
+
+                    <div href="#" class="btn_more">
+                      <a href="#">
+                        瀏覽更多
+                        <span class="material-symbols-outlined"
+                          >arrow_circle_right</span
+                        >
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 置右卡片 -->
+            <div class="flex-right">
+              <div class="recommend_card col-lg-8 col-md-12">
+                <div class="card_img">
+                  <img :src="data.src_2" :alt="title_2" />
+                </div>
+                <div class="card_info">
+                  <div class="card_info_top">
+                    <div class="card_title">
+                      <h4>{{ data.title_2 }}</h4>
+                      <span class="subtitle">{{ data.subtitle_2 }}</span>
+                    </div>
+                    <div class="star_tag">
+                      <span class="material-symbols-outlined"
+                        >military_tech</span
+                      >
+                    </div>
+                  </div>
+                  <p class="card_content">{{ data.content_2 }}</p>
+                  <div class="card_point">
+                    <div class="min">
+                      <span class="material-symbols-outlined">schedule</span>
+                      {{ data.time_2 }} 分鐘
+                    </div>
+                    <div class="address">
+                      <span class="material-symbols-outlined">location_on</span>
+                      {{ data.city_2 }} {{ data.area_2 }}
+                    </div>
+                  </div>
+                  <div class="card_info_bottom">
+                    <ul class="card_tags">
+                      <li v-for="item in data.tags_2">
+                        <a href="#"># {{ item }}</a>
+                      </li>
+                    </ul>
+
+                    <div href="#" class="btn_more">
+                      <a href="#">
+                        瀏覽更多
+                        <span class="material-symbols-outlined"
+                          >arrow_circle_right</span
+                        >
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
