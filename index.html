@@ -46,15 +46,27 @@
       <!-- hotspot -->
       <div class="hotspot"></div>
       <!-- marquee -->
-      <div class="marquee"></div>
+      <div class="marquee">
+        <div class="marquee_row">
+          <span class="marquee_text">
+            Taiwan's cultural allure lies in its ability to seamlessly blend
+            tradition with innovation, offering a truly enriching experience.
+          </span>
+          <!-- <span class="marquee_text">
+            Taiwan's cultural allure lies in its ability to seamlessly blend
+            tradition with innovation, offering a truly enriching experience.
+          </span> -->
+        </div>
+      </div>
+
       <!-- recommend -->
       <div class="recommend">
-        <div class="container">
+        <div class="container recommend_bg">
           <div class="area_title">
             <h1>景點推薦</h1>
             <div class="en_text">Best Tourist Attractions</div>
           </div>
-          <!-- 區塊輪播 -->
+          <!-- TODO 區塊輪播 -->
           <div class="cardBox" v-for="data in recommend_cards_data">
             <!-- 置左卡片 -->
             <div>
